@@ -2,7 +2,7 @@
 
 a [Sails v1](https://sailsjs.com) mini gamebook api server
 
-This application is created for stydy purposes, feel fre to contribute and report issues
+This application is created for study purposes, feel fre to contribute and report issues
 
 Author Marco Zuccaroli [marcozuccaroli@gmail.com](mailto:marcozuccaroli@gmail.com)
 

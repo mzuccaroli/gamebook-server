@@ -17,7 +17,8 @@ module.exports = {
         email: {
             type: 'string',
             unique: true,
-            email: true,
+            maxLength: 200,
+            isEmail: true,
             required: true
         },
         password: {
@@ -29,9 +30,10 @@ module.exports = {
             columnType: 'array',
             defaultsTo: ["DEFAULT_USER"]
         },
+
     },
     customToJSON: function () {
-        return _.omit(this, ['password'])
+        return _.omit(this, ['password', 'roles'])
     },
 
     beforeCreate: function (values, cb) {
@@ -43,5 +45,6 @@ module.exports = {
             cb();
         });
     }
+
 };
 

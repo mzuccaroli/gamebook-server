@@ -42,7 +42,7 @@ module.exports = {
 
                 if (!matched) return res.serverError("Invalid password.");
 
-                var token = jwt.sign(user, 'secret', {expiresIn: '10m'});
+                var token = jwt.sign(user, sails.config.custom.jwtSecret, {expiresIn: '10m'});
 
                 res.ok(token);
             });
@@ -61,7 +61,7 @@ module.exports = {
             if (error) return res.serverError(error);
             if (!user) return res.serverError("User not found");
 
-            var token = jwt.sign(user, 'secret', {expiresIn: '10m'});
+            var token = jwt.sign(user, sails.config.custom.jwtSecret , {expiresIn: '10m'});
             res.ok(token);
         });
     }

@@ -19,9 +19,20 @@ module.exports.policies = {
 
     // '*': true,
     UserController: {
-        update: 'isAuth',
-        destroy: 'isAuth',
-        refreshToken: 'isAuth'
+        update: ['isAuth'],
+        destroy: ['isAuth', 'isAdmin'],
+        refreshToken: 'isAuth',
+    },
+    GamebookController: {
+        create: 'isAuth',
+        update: ['isAuth', 'isOwner'],
+        destroy: ['isAuth', 'isOwner'],
+    },
+    ChapterController: {
+        create: ['isAuth', 'isBookOwner'],
+        update: ['isAuth', 'isBookOwner'],
+        destroy: ['isAuth', 'isBookOwner'],
     }
+
 
 };
